@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/drawable/ic_baseline_note_24.xml" value="0.147" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/fragment_dashboard.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/fragment_notifications.xml" value="0.19927536231884058" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/recordatorios.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/reminders.xml" value="0.25" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/MyDigimind/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>

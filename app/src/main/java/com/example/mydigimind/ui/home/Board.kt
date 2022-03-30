@@ -1,0 +1,16 @@
+package com.example.mydigimind.ui.home
+
+import java.io.Serializable
+
+class Board: Serializable {
+    var Reminders = ArrayList<Reminder>()
+
+    fun Add(p:Reminder):Boolean{
+        return Reminders.add(p)
+    }
+
+    fun IsEmpty():Boolean {
+        return Reminders.size <= 0
+    }
+
+}
