@@ -26,7 +26,7 @@ class ContrasenaActivity : AppCompatActivity() {
                     Toast.makeText(this,"Se envió la recuperación al correo electrónico $correo", Toast.LENGTH_SHORT)
                         .show()
                 }else{
-                 Toast.makeText(this,"Ocurrió un problema al enviar el correo.", Toast.LENGTH_SHORT)
+                 Toast.makeText(this,"Ocurrió un  problema al enviar el correo.", Toast.LENGTH_SHORT)
                      .show()
                 }
             }
