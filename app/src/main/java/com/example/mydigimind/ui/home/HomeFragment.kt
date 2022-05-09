@@ -1,24 +1,32 @@
 package com.example.mydigimind.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.GridView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.recordatorios.view.*
+import com.example.mydigimind.Carrito
 import com.example.mydigimind.R
+import com.example.mydigimind.Recordatorio
 
 class HomeFragment : Fragment() {
     private lateinit var homeViewModel:HomeViewModel
-    private var adapter: ReminderAdapter? = null
-    private var board = Board()
+    var carrito = Carrito()
+    companion object{
+        var task = ArrayList<Recordatorio>()
+        var first = true
+    }
 
+    private var adapter: RecordatorioAdapter? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,22 +35,73 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home,container,false)
+
         homeViewModel.text.observe(viewLifecycleOwner, Observer{
 
         })
+        if(first){
+            fillTask()
+            first = false
+        }
+        adapter = RecordatorioAdapter(context,carrito.recordatorios)
+        root.gridView.adapter = adapter
+        for (t in task){
+            carrito.agregar(t)
+        }
         return root
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        var gridView = view.findViewById<GridView>(R.id.gridView)
-        setFragmentResultListener("key") { _, bundle ->
-            val result: Reminder = bundle.getSerializable("reminder") as Reminder
-            board.Add(result)
-            gridView.adapter = ReminderAdapter(context,board.Reminders)
+        var key = "recordatorio"
+        var bundle = Bundle()
+        setFragmentResultListener("key") { recordatorio, bundle ->
+            val result: Recordatorio = bundle.getSerializable("recordatorio") as Recordatorio
+            carrito.agregar(result)
         }
 
     }
+    fun fillTask(){
+        task.add(Recordatorio(arrayListOf("Tuesday"),"17:30","Practice 1"))
+        task.add(Recordatorio(arrayListOf("Monday","Tuesday"),"17:30","Practice 2"))
+        task.add(Recordatorio(arrayListOf("Wednesday"),"17:30","Practice 3"))
+        task.add(Recordatorio(arrayListOf("Wednesday"),"17:30","Practice 4"))
+        task.add(Recordatorio(arrayListOf("Friday"),"17:30","Practice 5"))
+        task.add(Recordatorio(arrayListOf("Wednesday"),"17:30","Practice 6"))
 
+
+    }
+
+    class RecordatorioAdapter: BaseAdapter {
+        var recordatorio = ArrayList<Recordatorio>()
+        var context: Context? = null
+
+        constructor(context: Context?, recordatorio: ArrayList<Recordatorio>){
+            this.context = context
+            this.recordatorio = recordatorio
+        }
+        override fun getCount(): Int {
+            return recordatorio.size
+        }
+
+        override fun getItem(p0: Int): Any {
+            return recordatorio[p0]
+        }
+
+        override fun getItemId(p0: Int): Long {
+            return p0.toLong()
+        }
+
+        override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
+            var rec = recordatorio[p0]
+            var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            var vista = inflator.inflate(R.layout.recordatorios, null)
+            vista.txtDiasRecordatorio.text = rec.dias.toString()
+            vista.txtNombreRecordatorio.text = rec.nombre.toString()
+            vista.txtTiempoRecordatorio.text = rec.tiempo.toString()
+            return vista
+        }
+
+    }
 }

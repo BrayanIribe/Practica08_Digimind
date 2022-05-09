@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frag_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,13 +12,13 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/logobrain" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/logobrain"
+        />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:paddingBottom="100dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -28,28 +29,40 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_dashboard"
+                android:layout_marginRight="@dimen/margin_dashboard"
                 android:text="@string/what_do_you_want_to_remember_to_do"
-                android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textColor="@color/pink"
+                android:textSize="17sp"
+                android:textStyle="italic" />
 
             <EditText
-                android:id="@+id/inputRemember"
+                android:id="@+id/editTextInputRemember"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_dashboard"
+                android:layout_marginRight="@dimen/margin_dashboard"
                 android:hint="@string/take_my_pill"
-                android:inputType="text" />
+                android:inputType="text"
+                android:minHeight="48dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_dashboard"
+                android:layout_marginRight="@dimen/margin_dashboard"
                 android:text="@string/when_do_you_want_to_it"
-                android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textColor="@color/pink"
+                android:textSize="17sp"
+                android:textStyle="italic" />
 
             <TableLayout
                 android:id="@+id/table_days"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="210dp"
+                android:layout_marginLeft="@dimen/margin_dashboard"
+                android:layout_marginRight="@dimen/margin_dashboard">
+
 
                 <TableRow>
 
@@ -57,13 +70,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/monday"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <CheckBox
-                        android:id="@+id/checkMonday"
+                        android:id="@+id/check_monday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:layout_marginStart="30dp" />
+
                 </TableRow>
 
                 <TableRow>
@@ -72,13 +86,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tuesday"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <CheckBox
-                        android:id="@+id/checkTuesday"
+                        android:id="@+id/check_tuesday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:layout_marginStart="30dp" />
+
                 </TableRow>
 
                 <TableRow>
@@ -87,13 +102,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/wednesday"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <CheckBox
-                        android:id="@+id/checkWednesday"
+                        android:id="@+id/check_wednesday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:layout_marginStart="30dp" />
+
                 </TableRow>
 
                 <TableRow>
@@ -102,28 +118,30 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/thursday"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <CheckBox
-                        android:id="@+id/checkThursday"
+                        android:id="@+id/check_thursday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:layout_marginStart="30dp" />
+
                 </TableRow>
 
-                <TableRow>
+                <TableRow android:layout_height="28dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/friday"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <CheckBox
-                        android:id="@+id/checkFriday"
+                        android:id="@+id/check_friday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:layout_marginStart="30dp" />
+
                 </TableRow>
 
                 <TableRow>
@@ -132,28 +150,31 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/saturday"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <CheckBox
-                        android:id="@+id/checkSaturday"
+                        android:id="@+id/check_saturday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp" />
+                        android:layout_height="30dp"
+                        android:layout_marginStart="30dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
                 </TableRow>
 
-                <TableRow>
+                <TableRow android:layout_width="match_parent">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sunday"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <CheckBox
-                        android:id="@+id/checkSunday"
+                        android:id="@+id/check_sunday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:layout_marginStart="30dp" />
+
                 </TableRow>
             </TableLayout>
 
@@ -173,7 +194,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <Button
-                    android:id="@+id/btnSetTime"
+                    android:id="@+id/btnTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -191,16 +212,18 @@
                     android:layout_marginLeft="30dp"
                     />
             </LinearLayout>
-
             <Button
                 android:id="@+id/btnSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="@dimen/margin_dashboard"
+                android:layout_gravity="center"
                 android:background="@drawable/box_button"
                 android:text="Save" />
         </LinearLayout>
+
     </ScrollView>
+
+
+
 </LinearLayout>
